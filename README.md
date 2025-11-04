@@ -193,24 +193,14 @@ For Next.js Pages Router, no special configuration is needed.
 - Ensure Tailwind CSS is properly configured
 - Check that your build process includes the component's styles
 
-## License
-
-MIT
-
 ## Author
 
-Your Name / Organization
+KHAOUITI ABDELHAKIM
 
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## Support
-
-For issues, questions, or contributions, please visit:
-- GitHub Issues: [your-repo-url]
-- Documentation: [your-docs-url]
-
 ---
 
-Made with ❤️ by [Your Name]
+Made with ❤️ by KHAOUITI ABDELHAKIM
