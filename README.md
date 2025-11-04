@@ -1,36 +1,216 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# React Video Player Component
 
-## Getting Started
+A modern, fully-featured video player component for React/Next.js applications with custom controls, playback speed adjustment, and a beautiful UI.
 
-First, run the development server:
+![Video Player Screenshot](./public/screenshot.png)
+
+## Features
+
+✨ **Modern UI** - Clean, minimalist design with white icons on transparent black backgrounds
+🎮 **Custom Controls** - Play/Pause, Skip forward/backward, Volume control, Fullscreen
+⚡ **Playback Speed** - Adjustable speed (0.5x, 1x, 1.5x, 2x)
+🎯 **Seekable Timeline** - Click or drag to navigate through the video
+🔊 **Volume Control** - Expandable volume slider with visual feedback
+📱 **Responsive** - Works on all screen sizes
+⌨️ **Keyboard Support** - Control playback with keyboard shortcuts
+🖱️ **Auto-hiding Controls** - Controls fade out during playback for immersive viewing
+🎬 **Poster Support** - Display custom thumbnail before playback
+🔄 **Double-click Fullscreen** - Exit fullscreen with double-click
+
+## Installation
 
 ```bash
-npm run dev
+npm install @your-username/react-video-player
 # or
-yarn dev
+yarn add @your-username/react-video-player
 # or
-pnpm dev
-# or
-bun dev
+pnpm add @your-username/react-video-player
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This component requires the following peer dependencies:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install react react-dom lucide-react
+```
 
-## Learn More
+## Usage
 
-To learn more about Next.js, take a look at the following resources:
+### Basic Example
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```jsx
+'use client'; // Required for Next.js App Router
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+import VideoPlayer from '@your-username/react-video-player';
 
-## Deploy on Vercel
+export default function MyComponent() {
+  return (
+    <VideoPlayer
+      src="/path/to/video.mp4"
+      poster="/path/to/poster.jpg"
+      controls={true}
+      className="rounded-lg shadow-2xl"
+    />
+  );
+}
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### With Event Callbacks
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```jsx
+'use client';
+
+import VideoPlayer from '@your-username/react-video-player';
+
+export default function MyComponent() {
+  const handlePlay = () => {
+    console.log('Video started playing');
+  };
+
+  const handlePause = () => {
+    console.log('Video paused');
+  };
+
+  const handleEnded = () => {
+    console.log('Video ended');
+  };
+
+  const handleTimeUpdate = (currentTime) => {
+    console.log('Current time:', currentTime);
+  };
+
+  return (
+    <VideoPlayer
+      src="/video.mp4"
+      poster="/poster.jpg"
+      controls={true}
+      autoPlay={false}
+      loop={false}
+      muted={false}
+      width="100%"
+      height="auto"
+      onPlay={handlePlay}
+      onPause={handlePause}
+      onEnded={handleEnded}
+      onTimeUpdate={handleTimeUpdate}
+      className="rounded-lg overflow-hidden shadow-2xl"
+    />
+  );
+}
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `src` | `string` | **required** | URL of the video file |
+| `poster` | `string` | `undefined` | URL of the poster/thumbnail image |
+| `autoPlay` | `boolean` | `false` | Whether to start playing automatically |
+| `loop` | `boolean` | `false` | Whether to loop the video |
+| `muted` | `boolean` | `false` | Whether to mute the audio |
+| `controls` | `boolean` | `true` | Whether to show custom controls |
+| `width` | `string \| number` | `'100%'` | Width of the player |
+| `height` | `string \| number` | `'auto'` | Height of the player |
+| `onPlay` | `() => void` | `undefined` | Callback when video starts playing |
+| `onPause` | `() => void` | `undefined` | Callback when video is paused |
+| `onEnded` | `() => void` | `undefined` | Callback when video ends |
+| `onTimeUpdate` | `(currentTime: number) => void` | `undefined` | Callback on time update |
+| `className` | `string` | `''` | Additional CSS classes |
+
+## Styling
+
+The component uses Tailwind CSS for styling. Make sure you have Tailwind CSS configured in your project.
+
+### Custom Styling
+
+You can customize the appearance by:
+
+1. **Using the className prop** - Add custom classes to the container
+2. **Overriding Tailwind classes** - Use Tailwind's layer system
+3. **Modifying the component** - Fork and customize the source
+
+Example with custom styling:
+
+```jsx
+<VideoPlayer
+  src="/video.mp4"
+  className="rounded-xl border-4 border-blue-500 shadow-2xl"
+/>
+```
+
+## Keyboard Shortcuts
+
+- **Space** - Play/Pause
+- **Click** - Play/Pause
+- **Double-click** - Exit fullscreen
+- **Drag timeline** - Seek to position
+
+## Browser Support
+
+- Chrome/Edge (latest)
+- Firefox (latest)
+- Safari (latest)
+- Mobile browsers (iOS Safari, Chrome Mobile)
+
+## TypeScript Support
+
+This component is written in TypeScript and includes full type definitions.
+
+```typescript
+import VideoPlayer from '@your-username/react-video-player';
+import type { VideoPlayerProps } from '@your-username/react-video-player';
+```
+
+## Next.js Integration
+
+For Next.js App Router (v13+), make sure to use the `'use client'` directive:
+
+```jsx
+'use client';
+
+import VideoPlayer from '@your-username/react-video-player';
+
+export default function VideoPage() {
+  return <VideoPlayer src="/video.mp4" />;
+}
+```
+
+For Next.js Pages Router, no special configuration is needed.
+
+## Common Issues
+
+### Video not loading
+- Ensure the video path is correct
+- For Next.js, place videos in the `public` folder and use `/video.mp4` path
+- Check browser console for CORS or network errors
+
+### Controls not showing
+- Make sure `controls={true}` is set
+- Check if controls are hidden (they auto-hide during playback - hover to show)
+
+### Styling issues
+- Ensure Tailwind CSS is properly configured
+- Check that your build process includes the component's styles
+
+## License
+
+MIT
+
+## Author
+
+Your Name / Organization
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## Support
+
+For issues, questions, or contributions, please visit:
+- GitHub Issues: [your-repo-url]
+- Documentation: [your-docs-url]
+
+---
+
+Made with ❤️ by [Your Name]
