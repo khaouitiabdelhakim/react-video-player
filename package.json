@@ -1,6 +1,6 @@
 {
   "name": "@khaouitiabdelhakim/react-video-player",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A modern, fully-featured video player component for React/Next.js with custom controls and playback speed adjustment",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

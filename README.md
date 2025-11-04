@@ -20,11 +20,11 @@ A modern, fully-featured video player component for React/Next.js applications w
 ## Installation
 
 ```bash
-npm install @your-username/react-video-player
+npm install @khaouitiabdelhakim/react-video-player
 # or
-yarn add @your-username/react-video-player
+yarn add @khaouitiabdelhakim/react-video-player
 # or
-pnpm add @your-username/react-video-player
+pnpm add @khaouitiabdelhakim/react-video-player
 ```
 
 ## Dependencies
@@ -42,7 +42,7 @@ npm install react react-dom lucide-react
 ```jsx
 'use client'; // Required for Next.js App Router
 
-import VideoPlayer from '@your-username/react-video-player';
+import VideoPlayer from '@khaouitiabdelhakim/react-video-player';
 
 export default function MyComponent() {
   return (
@@ -61,7 +61,7 @@ export default function MyComponent() {
 ```jsx
 'use client';
 
-import VideoPlayer from '@your-username/react-video-player';
+import VideoPlayer from '@khaouitiabdelhakim/react-video-player';
 
 export default function MyComponent() {
   const handlePlay = () => {
@@ -158,8 +158,8 @@ Example with custom styling:
 This component is written in TypeScript and includes full type definitions.
 
 ```typescript
-import VideoPlayer from '@your-username/react-video-player';
-import type { VideoPlayerProps } from '@your-username/react-video-player';
+import VideoPlayer from '@khaouitiabdelhakim/react-video-player';
+import type { VideoPlayerProps } from '@khaouitiabdelhakim/react-video-player';
 ```
 
 ## Next.js Integration
@@ -169,7 +169,7 @@ For Next.js App Router (v13+), make sure to use the `'use client'` directive:
 ```jsx
 'use client';
 
-import VideoPlayer from '@your-username/react-video-player';
+import VideoPlayer from '@khaouitiabdelhakim/react-video-player';
 
 export default function VideoPage() {
   return <VideoPlayer src="/video.mp4" />;
